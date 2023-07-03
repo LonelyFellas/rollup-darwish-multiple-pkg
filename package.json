@@ -1,0 +1,25 @@
+{
+  "name": "rollup-darwish-multiple-pkg",
+  "version": "0.0.1",
+  "description": "Packed into multiple independent packages by rollup",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LonelyFellas/rollup-darwish-multiple-pkg.git"
+  },
+  "keywords": [
+    "darwish",
+    "rollup",
+    "multiple",
+    "packages"
+  ],
+  "author": "darwish <289582304@qq.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LonelyFellas/rollup-darwish-multiple-pkg/issues"
+  },
+  "homepage": "https://github.com/LonelyFellas/rollup-darwish-multiple-pkg#readme"
+}
