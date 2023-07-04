@@ -1,0 +1,6 @@
+# lock.json
+/package-lock.json
+# node_moudules
+/node_moudules
+# packed
+/dist

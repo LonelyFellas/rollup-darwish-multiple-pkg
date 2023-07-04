@@ -1,36 +1,45 @@
 /**
  * @param {Object} props
  * @param {String} props.file
- * @param {String} props.keepPkgName,
+ * @param {String} props.keepConsistentPkgName,
+ * @param {String} props.distName,
  * @param {Boolean} props.disableSourceMap
  * @param {String} props.cjsFileName
  * @param {String} props.esmFileName
  * @returns {Array}
  */
 const outputFn = (props) => {
-  const opt = [];
-  if (props.keepPkgName) {
+  const {
+    file,
+    keepConsistentPkgName,
+    cjsFileName,
+    esmFileName,
+    distName,
+    disableSourceMap,
+  } = props;
+  let opt = [];
+  if (keepConsistentPkgName) {
     opt = [
       {
-        file: file + '.cjs' + '.js',
+        file: distName + '/' + file,
         format: 'cjs',
       },
       {
-        file: file + '.esm' + '.js',
+        file: distName + '/' + file,
         format: 'esm',
       },
     ];
   } else {
     opt = [
-      { file: props.cjsFileName + '.cjs', format: 'cjs' },
+      { file: cjsFileName + '/' + file, format: 'cjs' },
       {
-        file: props.esmFileName + '.mjs',
+        file: esmFileName + '/' + file,
         format: 'esm',
       },
     ];
   }
 
-  return disableSourceMapFn(opt, props.disableSourceMap);
+  return disableSourceMapFn(opt, disableSourceMap);
 };
 
 /**
@@ -42,10 +51,10 @@ const outputFn = (props) => {
 function disableSourceMapFn(opt, disableSourceMap) {
   opt.forEach((el) => {
     if (disableSourceMap) {
-      el.sourceMap = true;
+      el['sourcemap'] = true;
     }
   });
   return opt;
 }
 
-exports.outputFn = outputFn;
+module.exports = outputFn;

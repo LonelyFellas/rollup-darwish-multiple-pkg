@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const { outputFn } = require('./output');
+const outputFn = require('./output');
 
 /**
  * @param {Object} props
  * @param {String} props.pkgName root path of package
  * @param {Boolean} props.disableSourceMap disable source map file
  * @param {Boolean} props.keepConsistentPkgName keep a consistent package name
+ * @param {String} props.distName file name
  * @param {String} props.cjsFileName cjs file name
  * @param {String} props.esmFileName esm file name
  * @param {Array} props.plugins some plugins
@@ -30,4 +31,4 @@ const darwishMultiplePkg = (props) => {
   return outputOptions;
 };
 
-exports.darwishMultiplePkg = darwishMultiplePkg;
+module.exports = darwishMultiplePkg;

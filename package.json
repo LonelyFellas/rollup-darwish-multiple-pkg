@@ -2,9 +2,10 @@
   "name": "rollup-darwish-multiple-pkg",
   "version": "0.0.1",
   "description": "Packed into multiple independent packages by rollup",
-  "main": "src/index.js",
+  "main": "dist/lib",
+  "module": "dist/esm",
   "scripts": {
-    "test": "test"
+    "build": "rollup -c --bundleConfigAsCjs"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/LonelyFellas/rollup-darwish-multiple-pkg/issues"
   },
-  "homepage": "https://github.com/LonelyFellas/rollup-darwish-multiple-pkg#readme"
+  "homepage": "https://github.com/LonelyFellas/rollup-darwish-multiple-pkg#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.6",
+    "@babel/preset-env": "^7.22.6",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "rollup": "^3.26.0"
+  }
 }
